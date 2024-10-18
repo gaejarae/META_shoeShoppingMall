@@ -6,7 +6,7 @@ function ProductItem({ product, onAddToCart }) {
   const [buttonText, setButtonText] = useState('담기');
 
   const handleClick = () => {
-    setButtonText('담기!');
+    setButtonText('담김!');
     onAddToCart();
   };
 
