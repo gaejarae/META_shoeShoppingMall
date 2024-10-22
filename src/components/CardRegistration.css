@@ -1,0 +1,74 @@
+/* src/components/CardRegistration.css */
+
+/* 기본 스타일 */
+.card-registration {
+  padding: 20px;
+  text-align: center;
+}
+
+/* 헤더 스타일 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.back-button, .close-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.card-image {
+  margin-top: 20px;
+}
+
+.card-image img {
+  width: 100px; /* 카드 이미지 크기 조정 */
+  height: auto;
+}
+
+/* 폼 스타일 */
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.form input {
+  width: 80%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* 만료일 (MM/YY) 연한 텍스트 */
+.expiry-date::placeholder {
+  color: #aaa;
+}
+
+/* 카드 소유자 이름 연한 텍스트 */
+.card-owner::placeholder {
+  color: #aaa;
+}
+
+/* 비밀번호 칸 */
+.password-container {
+  display: flex;
+  align-items: center;
+}
+
+.password {
+  width: 60%;
+  margin-right: 5px;
+}
+
+.dots {
+  font-size: 24px;
+}

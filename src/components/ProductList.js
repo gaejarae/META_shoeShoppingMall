@@ -1,6 +1,7 @@
 // src/components/ProductList.js
 import React, { useState } from 'react';
-import './Product.css'; // 통합된 CSS 파일을 불러옵니다.
+import { useNavigate } from 'react-router-dom';
+import './Product.css';
 
 // 로컬 이미지 import
 import img1 from '../image/img1.jpeg';
@@ -21,6 +22,7 @@ const products = [
 
 function ProductList({ onAddToCart }) {
   const [buttonState, setButtonState] = useState(Array(products.length).fill({ text: '담기', disabled: false }));
+  const navigate = useNavigate();
 
   const handleAddToCart = (index) => {
     onAddToCart();
@@ -29,27 +31,32 @@ function ProductList({ onAddToCart }) {
     setButtonState(updatedState);
   };
 
+  const handleBuyNow = () => {
+    navigate('/card-registration');
+  };
+
   return (
     <div className="product-list">
       {products.map((product, index) => (
         <div className="product-item" key={index}>
-          <img 
-            src={product.imgUrl} 
-            alt={`${product.brand} 이미지`} 
-            className="product-image" // 필요에 따라 CSS 추가 가능
-          />
+          <img src={product.imgUrl} alt={`${product.brand} 이미지`} className="product-image" />
           <div className="product-info">
             <h3>{product.brand}</h3>
             <p>{product.description}</p>
             <p className="product-price">{product.price}</p>
           </div>
-          <button 
-            className="add-to-cart-button" 
-            onClick={() => handleAddToCart(index)} 
-            style={{ backgroundColor: buttonState[index].disabled ? '#ccc' : 'black' }}
-          >
-            {buttonState[index].text}
-          </button>
+          <div className="button-group">
+            <button 
+              className="add-to-cart-button" 
+              onClick={() => handleAddToCart(index)} 
+              style={{ backgroundColor: buttonState[index].disabled ? '#ccc' : 'black' }}
+            >
+              {buttonState[index].text}
+            </button>
+            <button className="buy-now-button" onClick={handleBuyNow}>
+              구매
+            </button>
+          </div>
         </div>
       ))}
     </div>
