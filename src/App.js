@@ -6,7 +6,7 @@ import CardRegistration from './components/CardRegistration';
 import CardAddition from './components/CardAddition';
 import './App.css';
 
-function Header() {
+function Header({ cartCount }) {
   const location = useLocation(); // 현재 경로를 가져옴
 
   // 경로가 "/"일 때만 헤더를 보여줌 (상품 목록 페이지)
@@ -15,7 +15,7 @@ function Header() {
       <div>
         <header className="header">
           <div className="cart-container">
-            🛒
+            🛒 {cartCount > 0 && <div className="cart-badge">{cartCount}</div>}
           </div>
         </header>
         <h1>신발 쇼핑몰입니다</h1>
@@ -44,8 +44,8 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* Header가 조건부로 렌더링 */}
-        <Header />
+        {/* cartCount를 Header에 전달 */}
+        <Header cartCount={cartCount} />
         
         <Routes>
           {/* Product List page */}

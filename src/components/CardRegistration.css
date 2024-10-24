@@ -1,74 +1,64 @@
-/* src/components/CardRegistration.css */
-
-/* 기본 스타일 */
-.card-registration {
+.card-registration-screen {
+  background-color: #fff;
+  color: #000;
+  font-family: Arial, sans-serif;
   padding: 20px;
-  text-align: center;
 }
 
-/* 헤더 스타일 */
-.header {
+header {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.back-button, .close-button {
-  background-color: #333;
-  color: white;
+.back-button {
+  background-color: #000;
+  color: #fff;
   border: none;
-  padding: 8px 12px;
+  padding: 10px 20px;
   cursor: pointer;
-  font-size: 14px;
 }
 
-.card-image {
-  margin-top: 20px;
+.close-button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
-.card-image img {
-  width: 100px; /* 카드 이미지 크기 조정 */
-  height: auto;
-}
-
-/* 폼 스타일 */
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.form input {
-  width: 80%;
-  padding: 12px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-/* 만료일 (MM/YY) 연한 텍스트 */
-.expiry-date::placeholder {
-  color: #aaa;
-}
-
-/* 카드 소유자 이름 연한 텍스트 */
-.card-owner::placeholder {
-  color: #aaa;
-}
-
-/* 비밀번호 칸 */
-.password-container {
-  display: flex;
-  align-items: center;
-}
-
-.password {
-  width: 60%;
-  margin-right: 5px;
-}
-
-.dots {
+h2 {
   font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.card-item {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.add-card-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.add-card-button {
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 50%;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.add-card-button:hover {
+  background-color: #000;
+  color: #fff;
 }

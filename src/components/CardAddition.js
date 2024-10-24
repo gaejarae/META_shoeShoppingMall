@@ -1,6 +1,8 @@
 // src/components/CardAddition.js
 import React, { useState } from 'react';
+import './CardAddition.css';
 import { useNavigate } from 'react-router-dom';
+
 
 function CardAddition({ onCardAdded }) {
   const navigate = useNavigate();
@@ -30,8 +32,8 @@ function CardAddition({ onCardAdded }) {
   return (
     <div className="add-card-screen">
       <header>
-        <button className="back-button" onClick={() => navigate(-1)}>뒤로가기</button>
-        <button className="close-button" onClick={() => navigate('/')}>창닫기</button>
+        <button className="back-button" onClick={() => navigate(-1)}>&lt;</button>
+        <button className="close-button" onClick={() => navigate('/')}>X</button>
       </header>
 
       <h2>카드 추가하기</h2>

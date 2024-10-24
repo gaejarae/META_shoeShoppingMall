@@ -17,8 +17,8 @@ function CardRegistration({ cards, onCardAdded }) { // Accept props for cards an
   return (
     <div className="card-registration-screen">
       <header>
-        <button className="back-button" onClick={() => navigate(-1)}>뒤로가기</button>
-        <button className="close-button" onClick={() => navigate('/')}>창닫기</button>
+        <button className="back-button" onClick={() => navigate(-1)}>&lt;</button>
+        <button className="close-button" onClick={() => navigate('/')}>X</button>
       </header>
       <h2>카드 등록하기</h2>
 
