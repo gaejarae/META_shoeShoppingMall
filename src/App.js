@@ -19,7 +19,7 @@ function Header({ cartCount }) {
           </div>
         </header>
         <h1>신발 쇼핑몰입니다</h1>
-        <h4>현재 신발이 있습니다</h4>
+        <h4>현재 6개의 신발이 있습니다</h4>
       </div>
     );
   }

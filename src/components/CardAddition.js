@@ -33,7 +33,7 @@ function CardAddition({ onCardAdded }) {
     <div className="add-card-screen">
       <header>
         <button className="back-button" onClick={() => navigate(-1)}>&lt;</button>
-        <button className="close-button" onClick={() => navigate('/')}>X</button>
+        <button className="close-button" onClick={() => navigate('/')}>⨉</button>
       </header>
 
       <h2>카드 추가하기</h2>
