@@ -1,20 +1,26 @@
 // src/App.js
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import ProductList from './components/ProductList';
 import CardRegistration from './components/CardRegistration';
 import CardAddition from './components/CardAddition';
+import Cart from './components/Cart'; // Cart 컴포넌트 import 추가
 import './App.css';
 
-function Header({ cartCount }) {
+function Header({ cartCount, onCartClick }) {
   const location = useLocation(); // 현재 경로를 가져옴
+  const navigate = useNavigate(); // navigate 함수 추가
+
+  const handleCartClick = () => {
+    navigate('/cart');
+  };
 
   // 경로가 "/"일 때만 헤더를 보여줌 (상품 목록 페이지)
   if (location.pathname === '/') {
     return (
       <div>
         <header className="header">
-          <div className="cart-container">
+          <div className="cart-container" onClick={handleCartClick}> {/* onClick 이벤트 추가 */}
             🛒 {cartCount > 0 && <div className="cart-badge">{cartCount}</div>}
           </div>
         </header>
@@ -29,11 +35,27 @@ function Header({ cartCount }) {
 
 function App() {
   const [cartCount, setCartCount] = useState(0); // 장바구니 개수 상태
+  const [cartItems, setCartItems] = useState([]); // 장바구니 아이템 상태 추가
   const [cards, setCards] = useState([]); // 카드 목록 상태
 
   // Handle adding items to the cart
-  const handleAddToCart = () => {
+  const handleAddToCart = (product) => {
+    const existingItem = cartItems.find(item => item.brand === product.brand);
+    if (existingItem) {
+      // 이미 있는 제품이면 수량을 증가시킴
+      handleUpdateQuantity(existingItem, existingItem.quantity + 1);
+    } else {
+      setCartItems([...cartItems, { ...product, quantity: 1 }]); // 장바구니에 새로운 상품 추가 시 기본 수량 설정
+    }
     setCartCount(cartCount + 1); // 상품 추가 시 개수 증가
+  };
+
+  const handleUpdateQuantity = (product, quantity) => {
+    setCartItems((items) =>
+      items.map((item) =>
+        item.brand === product.brand ? { ...item, quantity } : item
+      )
+    );
   };
 
   // Handle adding a new card
@@ -44,21 +66,21 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* cartCount를 Header에 전달 */}
-        <Header cartCount={cartCount} />
+        <Header cartCount={cartCount} onCartClick={() => {}} />
         
         <Routes>
-          {/* Product List page */}
           <Route
             path="/"
             element={<ProductList onAddToCart={handleAddToCart} />}
           />
-          {/* Card Registration page */}
+          <Route
+            path="/cart"
+            element={<Cart cartItems={cartItems} onUpdateQuantity={handleUpdateQuantity} />}
+          />
           <Route
             path="/card-registration"
             element={<CardRegistration cards={cards} />}
           />
-          {/* Card Addition page */}
           <Route
             path="/add-card"
             element={<CardAddition onCardAdded={handleAddCard} />}
