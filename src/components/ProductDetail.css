@@ -1,47 +1,49 @@
 .product-detail {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .product-detail .back-button {
-    background-color: transparent;
-    border: none;
-    color: #ff9500;
-    font-size: 16px;
-    cursor: pointer;
-    margin-bottom: 10px;
-  }
-  
-  .product-detail .product-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-  
-  .product-detail .product-info {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .product-detail .product-info h2 {
-    font-size: 24px;
-  }
-  
-  .product-detail .product-info p {
-    font-size: 16px;
-    color: #555;
-  }
-  
-  .product-detail .add-to-cart-button {
-    background-color: black;
-    color: white;
-    font-size: 16px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 헤더 내의 버튼 스타일을 업데이트 */
+.header .back-button {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: auto; /* 왼쪽 정렬을 위해 추가 */
+}
+
+.product-detail .product-image {
+  width: 381px;
+  height: 441px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.product-detail .product-info {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.product-detail .product-info h2 {
+  font-size: 24px;
+}
+
+.product-detail .product-info p {
+  font-size: 16px;
+  color: #555;
+}
+
+.product-detail .add-to-cart-button {
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}

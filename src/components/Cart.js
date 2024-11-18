@@ -2,6 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Cart.css';
+import '../App.css'; // App.css를 불러와서 헤더 스타일 적용
 
 function Cart({ cartItems, onUpdateQuantity }) {
   const navigate = useNavigate();
@@ -25,8 +26,11 @@ function Cart({ cartItems, onUpdateQuantity }) {
   const { itemTotal, shipping, grandTotal } = calculateTotal();
 
   return (
+    
     <div className="cart">
-    <button className="back-button" onClick={() => navigate(-1)}>{'←'}</button>
+      <header className="header">
+        <button className="back-button" onClick={() => navigate(-1)}>{'←'}</button>
+      </header>
       <h2>장바구니</h2>
       {cartItems.length > 0 ? (
         <div>

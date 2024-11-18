@@ -60,7 +60,6 @@ h1, h4 {
   margin: 0;
 }
 
-
 /* 이미지 스타일 */
 .product-item img {
   width: 100%;
@@ -70,8 +69,6 @@ h1, h4 {
   padding: 0;
   border: none;
 }
-
-
 
 .add-to-cart-button:hover {
   background-color: #333;
