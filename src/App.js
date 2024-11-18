@@ -44,7 +44,7 @@ function Header({ cartCount, onCartClick }) {
 function App() {
   const [cartCount, setCartCount] = useState(0);
   const [cartItems, setCartItems] = useState([]);
-  const [products, setProducts] = useState([
+  const [products] = useState([
     { id: 1, brand: '브랜드 A', description: '편안하고 착용감이 좋은 신발', price: 35000, imgUrl: img1 },
     { id: 2, brand: '브랜드 A', description: '힙한 컬러가 매력적인 신발', price: 25000, imgUrl: img2 },
     { id: 3, brand: '브랜드 B', description: '편안하고 착용감이 좋은 신발', price: 45000, imgUrl: img3 },
