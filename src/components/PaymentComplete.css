@@ -1,0 +1,28 @@
+
+
+.payment-complete {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .payment-complete h1 {
+    font-size: 36px;
+    color: black;
+  }
+  
+  .payment-complete p {
+    font-size: 18px;
+    margin: 20px 0;
+  }
+  
+  .view-products-button {
+    background-color: yellow; /* 노란색 */
+    color: black;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  

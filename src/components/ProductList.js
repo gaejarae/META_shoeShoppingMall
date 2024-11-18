@@ -1,4 +1,3 @@
-// src/components/ProductList.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Product.css';
@@ -12,12 +11,12 @@ import img5 from '../image/img5.jpeg';
 import img6 from '../image/img6.jpeg';
 
 const products = [
-  { brand: '브랜드 A', description: '편안하고 착용감이 좋은 신발', price: 35000, imgUrl: img1, quantity: 1 },
-  { brand: '브랜드 A', description: '힙한 컬러가 매력적인 신발', price: 25000, imgUrl: img2, quantity: 1 },
-  { brand: '브랜드 B', description: '편안하고 착용감이 좋은 신발', price: 35000, imgUrl: img3, quantity: 1 },
-  { brand: '브랜드 B', description: '힙한 컬러가 매력적인 신발', price: 35000, imgUrl: img4, quantity: 1 },
-  { brand: '브랜드 C', description: '편안하고 착용감이 좋은 신발', price: 35000, imgUrl: img5, quantity: 1 },
-  { brand: '브랜드 C', description: '힙한 컬러가 매력적인 신발', price: 35000, imgUrl: img6, quantity: 1 },
+  { id: 1, brand: '브랜드 A', description: '편안하고 착용감이 좋은 신발', price: 35000, imgUrl: img1, quantity: 1 },
+  { id: 2, brand: '브랜드 A', description: '힙한 컬러가 매력적인 신발', price: 25000, imgUrl: img2, quantity: 1 },
+  { id: 3, brand: '브랜드 B', description: '편안하고 착용감이 좋은 신발', price: 35000, imgUrl: img3, quantity: 1 },
+  { id: 4, brand: '브랜드 B', description: '힙한 컬러가 매력적인 신발', price: 35000, imgUrl: img4, quantity: 1 },
+  { id: 5, brand: '브랜드 C', description: '편안하고 착용감이 좋은 신발', price: 35000, imgUrl: img5, quantity: 1 },
+  { id: 6, brand: '브랜드 C', description: '힙한 컬러가 매력적인 신발', price: 35000, imgUrl: img6, quantity: 1 },
 ];
 
 function ProductList({ onAddToCart }) {
@@ -31,6 +30,10 @@ function ProductList({ onAddToCart }) {
     setButtonState(updatedState);
   };
 
+  const handleProductClick = (id) => {
+    navigate(`/products/${id}`); // 제품 상세 페이지로 이동
+  };
+
   const handleBuyNow = () => {
     navigate('/card-registration');
   };
@@ -38,7 +41,7 @@ function ProductList({ onAddToCart }) {
   return (
     <div className="product-list">
       {products.map((product, index) => (
-        <div className="product-item" key={index}>
+        <div className="product-item" key={product.id} onClick={() => handleProductClick(product.id)}>
           <img src={product.imgUrl} alt={`${product.brand} 이미지`} className="product-image" />
           <div className="product-info">
             <h3>{product.brand}</h3>
@@ -48,7 +51,10 @@ function ProductList({ onAddToCart }) {
           <div className="button-group">
             <button 
               className="add-to-cart-button" 
-              onClick={() => handleAddToCart(index)} 
+              onClick={(e) => {
+                e.stopPropagation(); // 이벤트 전파 방지
+                handleAddToCart(index);
+              }} 
               style={{ backgroundColor: buttonState[index].disabled ? '#ccc' : 'black' }}
             >
               {buttonState[index].text}

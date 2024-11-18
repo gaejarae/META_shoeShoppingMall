@@ -53,7 +53,7 @@ function Cart({ cartItems, onUpdateQuantity }) {
             <p className="grand-total">총 금액: {grandTotal.toLocaleString()}원</p>
             </div>
           </div>
-          <button className="checkout-button">결제하기</button>
+          <button className="checkout-button" onClick={() => navigate('/card-registration')}>결제하기</button>
         </div>
       ) : (
         <p>장바구니가 비어 있습니다.</p>

@@ -3,15 +3,20 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './CardRegistration.css';
 
-function CardRegistration({ cards, onCardAdded }) { // Accept props for cards and the handler
+function CardRegistration({ cards, cartItems }) { // cartItems prop 추가
   const navigate = useNavigate();
 
   const handleAddCardClick = () => {
-    navigate('/add-card'); // Navigate to the card addition screen
+    navigate('/add-card'); // 카드 추가 화면으로 이동
   };
 
-  const handlePayWithCard = (index) => {
-    alert(`카드 ${index + 1}로 결제합니다!`);
+  const handlePayWithCard = () => {
+    const itemCount = cartItems.reduce((count, item) => count + item.quantity, 0);
+    const totalAmount = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+    navigate('/payment-complete', {
+      state: { itemCount, totalAmount }
+    });
   };
 
   return (
@@ -26,7 +31,7 @@ function CardRegistration({ cards, onCardAdded }) { // Accept props for cards an
         cards.map((card, index) => (
           <div key={index} className="card-item">
             <p>카드 {index + 1} (**** **** **** {card.cardNumber.slice(-4)})</p>
-            <button onClick={() => handlePayWithCard(index)}>이 카드로 결제하기</button>
+            <button onClick={handlePayWithCard}>이 카드로 결제하기</button>
           </div>
         ))
       ) : (
