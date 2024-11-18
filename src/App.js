@@ -59,13 +59,13 @@ function App() {
     if (existingItem) {
       setCartItems(
         cartItems.map(item =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+          item.id === product.id ? { ...item, quantity: item.quantity + product.quantity } : item
         )
       );
     } else {
-      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+      setCartItems([...cartItems, product]);
     }
-    setCartCount(cartCount + 1);
+    setCartCount(cartCount + product.quantity); // 추가된 수량만큼 카운트를 증가
   };
 
   const handleUpdateQuantity = (product, quantity) => {
@@ -91,7 +91,7 @@ function App() {
           />
           <Route
             path="/products/:productId"
-            element={<ProductDetail products={products} onAddToCart={handleAddToCart} />}
+            element={<ProductDetail products={products} onAddToCart={handleAddToCart} cartCount={cartCount} />}
           />
           <Route
             path="/cart"

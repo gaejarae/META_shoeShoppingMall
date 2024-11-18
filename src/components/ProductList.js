@@ -34,7 +34,8 @@ function ProductList({ onAddToCart }) {
     navigate(`/products/${id}`); // 제품 상세 페이지로 이동
   };
 
-  const handleBuyNow = () => {
+  const handleBuyNow = (e) => {
+    e.stopPropagation(); //클릭 이벤트가 상위 요소로 전파되지 않도록 방지
     navigate('/card-registration');
   };
 

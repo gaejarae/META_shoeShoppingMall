@@ -15,6 +15,7 @@
   margin-right: auto; /* 왼쪽 정렬을 위해 추가 */
 }
 
+
 .product-detail .product-image {
   width: 381px;
   height: 441px;
@@ -35,6 +36,32 @@
 .product-detail .product-info p {
   font-size: 16px;
   color: #555;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.quantity-controls button {
+  width: 35px;
+  height: 35px;
+  font-size: 24px;
+  background-color: #ddd;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-controls span {
+  font-size: 16px;
+  margin: 0 10px;
 }
 
 .product-detail .add-to-cart-button {
